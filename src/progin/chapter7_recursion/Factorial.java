@@ -13,6 +13,10 @@ public class Factorial {
 		}
 	}
 	
+	
+	
+	
+	
 	// straight-forward recursive approach
 	public static int factorialRecursive(int n) {
 		if (n <= 1) {
@@ -21,6 +25,11 @@ public class Factorial {
 			return n*factorialRecursive(n-1);
 		}
 	}
+	
+	
+	
+	
+	
 	
 	// recursive approach with tail recursion
 	public static int factorialTailRecursive(int n) {
@@ -34,6 +43,10 @@ public class Factorial {
 			return factorialTailRecursive(n-1, acc*n);
 		}
 	}
+	
+	
+	
+	
 	
 	// iterative approach from tail recursive
 	public static int factorialIterative(int n) {
