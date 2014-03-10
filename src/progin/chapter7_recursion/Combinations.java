@@ -16,8 +16,15 @@ public class Combinations {
 		
 		List<List<String>> solutions = new ArrayList<List<String>>();
 		
-		solutions.add(allCombinationsRecursiveBottomUp("abcde"));
-		solutions.add(allCombinationsRecursiveTopDown("abcde"));
+		//String input = "";
+		//String input = "a";
+		//String input = "ab";
+		String input = "abcde";
+		solutions.add(allCombinationsRecursiveBottomUp(input));
+		solutions.add(allCombinationsRecursiveTopDown(input));
+		solutions.add(allCombinationsIterativeBottomUp(input));
+		solutions.add(allCombinationsIterativeTopDown(input));
+		
 		
 		for (List<String> solution : solutions) {
 			System.out.print(solution.size() + "  ");
@@ -32,6 +39,10 @@ public class Combinations {
 			System.out.println();
 		}
 	}
+	
+	
+	
+	
 	
 	public static List<String> allCombinationsRecursiveBottomUp(String input) {
 		List<String> combs = new ArrayList<String>();
@@ -50,6 +61,26 @@ public class Combinations {
 		return combs;
 	}
 	
+	
+	
+	
+	
+	public static List<String> allCombinationsIterativeBottomUp(String input) {
+		List<String> combs = new ArrayList<String>();
+		combs.add("");
+		for (int i = input.length()-1; i >= 0; i--) {
+			int previousLength = combs.size();
+			for (int j = 0; j < previousLength; j++) {
+				combs.add(input.substring(i, i+1) + combs.get(j));
+			}
+		}
+		return combs;
+	}
+	
+	
+	
+	
+	
 	public static List<String> allCombinationsRecursiveTopDown(String input) {
 		List<String> combs = new ArrayList<String>();
 		allCombinationsRecursiveTopDown(input, "", combs);
@@ -67,6 +98,22 @@ public class Combinations {
 			// cases where curChar is included
 			allCombinationsRecursiveTopDown(input.substring(1), output + curChar, acc);
 		}
+	}
+	
+	
+	
+	
+	
+	public static List<String> allCombinationsIterativeTopDown(String input) {
+		List<String> combs = new ArrayList<String>();
+		combs.add("");
+		for (int i = 0; i < input.length(); i++) {
+			int previousLength = combs.size();
+			for (int j = 0; j < previousLength; j++) {
+				combs.add(combs.get(j) + input.substring(i, i+1));
+			}
+		}
+		return combs;
 	}
 
 }

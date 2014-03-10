@@ -35,6 +35,10 @@ public class Permutations {
 		
 	}
 	
+	
+	
+	
+	
 	// bottom-up recursive approach
 	public static List<String> allPermutationsRecursiveBottomUp(String input) {
 		List<String> perms = new ArrayList<String>();
@@ -55,6 +59,10 @@ public class Permutations {
 		}
 		return perms;
 	}
+	
+	
+	
+	
 	
 	// top-down recursive approach using accumulator 
 	public static List<String> allPermutationsRecursiveTopDown(String input) {
@@ -77,6 +85,10 @@ public class Permutations {
 			}
 		}
 	}
+	
+	
+	
+	
 	
 	// avoid splitting up input string
 	// .. same trick could be used for the bottom-up approach (a wrapper method is needed then)
