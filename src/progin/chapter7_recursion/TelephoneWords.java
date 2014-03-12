@@ -7,7 +7,7 @@ public class TelephoneWords {
 	/*
 	 * Problem: generate all words (sequences) that translate from a string
 	 * 
-	 * Solution: recursively explore tree where a node at depth i has branches corresponding to the character at position i 
+	 * Solution: recursively explore tree where a node at depth i has a branch for each translation of position i 
 	 *  - note that all sub-trees are identical (suggesting that bottom-up is better -- fewer method calls)
 	 *  - similar to combinations, but now the branches are not include/exclude but the possible translations
 	 *  
