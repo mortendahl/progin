@@ -40,18 +40,18 @@ public class DiningPhilosophers {
 	}
 	
 	public static void main(String[] args) {
-		final int numberOfPhilosophers = 5;  // same number of forks
+		final int numberOfPhilosophersAndForks = 5;
 		// put forks on table
-		forks = new Object[numberOfPhilosophers];
-		for (int i = 0; i < numberOfPhilosophers; i++) {
+		forks = new Object[numberOfPhilosophersAndForks];
+		for (int i = 0; i < numberOfPhilosophersAndForks; i++) {
 			forks[i] = new Object();
 		}
 		// seat philosophers around table
-		philosophers = new Philosopher[numberOfPhilosophers];
-		for (int i = 0; i < numberOfPhilosophers; i++) {
+		philosophers = new Philosopher[numberOfPhilosophersAndForks];
+		for (int i = 0; i < numberOfPhilosophersAndForks; i++) {
 			// naive strategy (with cyclic pick-up order)
 			int firstFork = i;
-			int secondFork = (i + 1) % numberOfPhilosophers;
+			int secondFork = (i + 1) % numberOfPhilosophersAndForks;
 			// deadlock-free strategy: swap for every other philosopher
 			if (i % 2 == 0) {
 				int tmp = firstFork;
@@ -61,8 +61,8 @@ public class DiningPhilosophers {
 			philosophers[i] = new Philosopher(i, firstFork, secondFork);
 		}
 		// say 'bon appetit'
-		ExecutorService exec = Executors.newFixedThreadPool(numberOfPhilosophers);
-		for (int i = 0; i < numberOfPhilosophers; i++) {
+		ExecutorService exec = Executors.newFixedThreadPool(numberOfPhilosophersAndForks);
+		for (int i = 0; i < numberOfPhilosophersAndForks; i++) {
 			exec.execute(philosophers[i]);
 		}
 	}
